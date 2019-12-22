@@ -19,7 +19,22 @@ namespace granola_methods
                       profitAfterFee;
         static void Main(string[] args)
         {
-            WriteLine("Hello World!");
+            casesSold = ReadDouble("Enter cases sold:");
+            pricePerBar = ReadDouble("Enter price per bar:");
+            WriteLine("****** Generating Results ******");
         }
+        static double ReadDouble(string label)
+        {
+            Write("{0} ", label);
+            double number;
+            string userInput = ReadLine();
+            while (Double.TryParse(userInput, out number) == false)
+            {
+                Write("{0}{1} ", "Invalid input!\n", label);
+                userInput = ReadLine();
+            }
+            return number;
+        }
+
     }
 }
