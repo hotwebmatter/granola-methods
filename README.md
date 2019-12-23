@@ -2,6 +2,12 @@
 
 Eighth programming exercise in chapter three
 
+Note that "Bars Sold" is a double-precision float,
+formatted to show two decimal places of value. (I
+did this, even though it looks a bit like dollars
+and cents, because I wanted the solution to allow
+selling partial cases of granola bars.)
+
 ## Example output
 ```
 $ dotnet bin/Debug/netcoreapp2.1/granola-methods.dll
