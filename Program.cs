@@ -12,6 +12,7 @@ namespace granola_methods
         // class-level static variables
         static double casesSold,
                       pricePerBar,
+                      barsSold,
                       grossReceipts,
                       wholesaleCost,
                       netProfits,
@@ -21,6 +22,7 @@ namespace granola_methods
         {
             casesSold = ReadDouble("Enter cases sold:");
             pricePerBar = ReadDouble("Enter price per bar:");
+            CalculateProfits();
             WriteLine("****** Generating Results ******");
         }
         static double ReadDouble(string label)
@@ -35,6 +37,14 @@ namespace granola_methods
             }
             return number;
         }
-
+        static void CalculateProfits()
+        {
+            barsSold = casesSold * BARS_PER_CASE;
+            grossReceipts = barsSold * pricePerBar;
+            wholesaleCost = casesSold * COST_PER_CASE;
+            netProfits = grossReceipts - wholesaleCost;
+            studentGovtFee = netProfits * STUDENT_GOVT_PERCENTAGE;
+            profitAfterFee = netProfits - studentGovtFee;
+        }
     }
 }
