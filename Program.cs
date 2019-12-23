@@ -23,7 +23,7 @@ namespace granola_methods
             casesSold = ReadDouble("Enter cases sold:");
             pricePerBar = ReadDouble("Enter price per bar:");
             CalculateProfits();
-            WriteLine("****** Generating Results ******");
+            WriteLine(DisplayResults());
         }
         static double ReadDouble(string label)
         {
@@ -45,6 +45,18 @@ namespace granola_methods
             netProfits = grossReceipts - wholesaleCost;
             studentGovtFee = netProfits * STUDENT_GOVT_PERCENTAGE;
             profitAfterFee = netProfits - studentGovtFee;
+        }
+        static string DisplayResults()
+        {
+            string result = String.Format("\n****** Granola Bar Proceeds ******\n");
+            result += String.Format("* {0, 20}{1, 10:N} *\n", "Bars Sold:", barsSold);
+            result += String.Format("* {0, 20}{1, 10:C} *\n", "Gross Receipts:", grossReceipts);
+            result += String.Format("* {0, 20}{1, 10:C} *\n", "Wholesale Cost:", wholesaleCost);
+            result += String.Format("* {0, 20}{1, 10:C} *\n", "Net Profits", netProfits);
+            result += String.Format("* {0, 20}{1, 10:C} *\n", "Student Gov't Fee:", studentGovtFee);
+            result += String.Format("* {0, 20}{1, 10:C} *\n", "Profit After Fee:", profitAfterFee);
+            result += String.Format("**********************************\n");
+            return result;
         }
     }
 }
